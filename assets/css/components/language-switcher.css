@@ -21,7 +21,7 @@ li.pll-parent-menu-item ul.sub-menu li.current-lang a::before {
 }
 li.pll-parent-menu-item {
     position: relative;
-    width: 100%;
+    width: auto;
 }
 li.pll-parent-menu-item > a,
 li.pll-parent-menu-item > a:link,
