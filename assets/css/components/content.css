@@ -306,16 +306,20 @@ body.single .gp-top-meta-bar .left-buttons {
     /* Ensure no grid properties are present */
 }
 
-body.single .gp-top-meta-bar .gp-post-category, /* Targets the breadcrumb container */
+.breadcrumb-lang-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+}
+
+body.single .gp-top-meta-bar .gp-post-category,
 .single .gp-top-meta-bar .gp-post-category {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: auto !important; /* Or a specific max-width if defined previously */
-    margin: 0 !important; /* Reset margin */
-    /* display: flex etc. from previous rules for internal alignment are likely still fine */
-    /* Remove grid-item specific properties */
+    /* No longer needs absolute positioning */
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -323,6 +327,11 @@ body.single .gp-top-meta-bar .gp-post-category, /* Targets the breadcrumb contai
     flex-wrap: wrap !important;
     gap: 5px !important;
     flex-direction: row !important;
+    margin-right: 15px; /* Add some space between breadcrumb and language switcher */
+}
+
+body.single .gp-language-switcher {
+    /* No special positioning needed, will align next to breadcrumbs */
 }
 
 .entry-title {

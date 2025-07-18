@@ -37,6 +37,7 @@ function gp_breadcrumb_output() {
         return;
     }
 
+    echo '<div class="breadcrumb-lang-wrapper">';
     echo '<div class="gp-post-category">';
     $cat_id = $categories[0]->term_id;
     $parent_ids = array_reverse( get_ancestors( $cat_id, 'category' ) );
@@ -44,6 +45,11 @@ function gp_breadcrumb_output() {
         echo '<a href="' . esc_url( get_category_link( $parent_id ) ) . '">' . esc_html(get_cat_name( $parent_id )) . '</a> <span class="breadcrumb-separator">»</span> ';
     }
     echo '<a href="' . esc_url( get_category_link( $cat_id ) ) . '">' . esc_html(get_cat_name( $cat_id )) . '</a>';
+    echo '</div>';
+
+    if ( is_singular() ) {
+        gp_language_switcher_output();
+    }
     echo '</div>';
 
     if ( is_singular() ) {

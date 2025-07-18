@@ -31,8 +31,6 @@ require_once get_stylesheet_directory() . '/includes/admin.php';
 require_once get_stylesheet_directory() . '/includes/customizer.php';
 require_once get_stylesheet_directory() . '/includes/widgets.php';
 
-// Add language switcher to the end of the main navigation
-add_action( 'generate_menu_bar_items', 'gp_language_switcher_output' );
 
 // Load components
 require_once get_stylesheet_directory() . '/components/ads/ads.php';
