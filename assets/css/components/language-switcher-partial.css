@@ -1,6 +1,6 @@
-/* Destination: components/_language-switcher.css */
+/* Responsive adjustments for language switcher */
 @media (max-width: 768px) {
-    .main-navigation li.pll-parent-menu-item>a {
-        font-size: 0 !important;
+    .menu-bar-items .gp-language-switcher {
+        margin-left: 8px; /* Adjust margin for mobile view */
     }
 }

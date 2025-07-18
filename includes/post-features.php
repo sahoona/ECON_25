@@ -47,7 +47,6 @@ function gp_breadcrumb_output() {
     echo '</div>';
 
     if ( is_singular() ) {
-        gp_language_switcher_output();
         echo '</div></div>';
     }
 }
