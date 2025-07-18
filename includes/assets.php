@@ -21,14 +21,19 @@ function gp_child_enqueue_assets() {
     wp_enqueue_style('gp-child-style', get_stylesheet_uri(), ['generatepress-style'], file_exists($theme_dir . '/style.css') ? filemtime($theme_dir . '/style.css') : $theme_version);
 
     // --- Load all CSS files individually ---
+    // --- Load all CSS files individually ---
+    // Enqueue fonts first
+    $fonts_path = '/assets/css/components/fonts.css';
+    if (file_exists($theme_dir . $fonts_path)) {
+        wp_enqueue_style('gp-fonts-style', get_stylesheet_directory_uri() . $fonts_path, ['gp-child-style'], filemtime($theme_dir . $fonts_path));
+    }
+
     $css_files = [
         // Core
         'variables'   => '/assets/css/components/variables.css',
-        'fonts'       => '/assets/css/components/fonts.css',
         'main'        => '/assets/css/main.css',
         // Layout
         'layout'      => '/assets/css/layout.css',
-        'c-layout'    => '/assets/css/components/layout.css',
         'header'      => '/assets/css/components/header.css',
         'sidebar'     => '/assets/css/components/sidebar.css',
         'responsive'  => '/assets/css/components/responsive.css',
@@ -43,7 +48,7 @@ function gp_child_enqueue_assets() {
         'post-nav'    => '/assets/css/components/post-navigation.css',
     ];
 
-    $last_handle = 'gp-child-style';
+    $last_handle = 'gp-fonts-style'; // Start chaining from fonts
     foreach ($css_files as $handle => $path) {
         if (file_exists($theme_dir . $path)) {
             $file_handle = 'gp-' . $handle . '-style';
