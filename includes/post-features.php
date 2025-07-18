@@ -53,7 +53,7 @@ function gp_breadcrumb_output() {
     echo '</div>';
 
     if ( is_singular() ) {
-        echo '</div><div class="right-placeholder"></div></div>';
+        echo '</div></div>';
     }
 }
 

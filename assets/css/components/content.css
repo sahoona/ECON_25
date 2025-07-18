@@ -277,34 +277,20 @@ body:not(.single) article.post .entry-header {
 body.single .gp-top-meta-bar-container,
 .single .gp-top-meta-bar-container {
     width: 100% !important;
-    margin: 0 auto !important;
+    margin: 0 auto 25px auto !important; /* Add margin to the bottom */
 }
 
 body.single .gp-top-meta-bar,
 .single .gp-top-meta-bar {
-    display: grid !important;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex !important;
+    justify-content: space-between !important;
     align-items: center !important;
     width: 100% !important;
     min-height: 42px;
-    position: relative !important;
+    position: static !important; /* Change to static */
     padding: 0 !important;
     box-sizing: border-box !important;
-}
-
-.gp-top-meta-bar .left-buttons {
-    grid-column: 1;
-    justify-self: start;
-}
-
-.gp-top-meta-bar .breadcrumb-lang-wrapper {
-    grid-column: 2;
-    justify-self: center;
-}
-
-.gp-top-meta-bar .right-placeholder {
-    grid-column: 3;
-    justify-self: end;
+    margin-top: -100px; /* Pull the bar up */
 }
 
 /*
@@ -324,6 +310,21 @@ body.single .gp-top-meta-bar .left-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0; /* Adjust this value to move the breadcrumb up/down */
+    width: auto;
+    white-space: nowrap; /* Prevent wrapping within the breadcrumb itself */
+}
+
+body.single .gp-top-meta-bar .gp-post-category,
+.single .gp-top-meta-bar .gp-post-category {
+    flex-shrink: 0; /* Do not allow breadcrumb to shrink */
+}
+
+body.single .gp-language-switcher {
+    flex-shrink: 0; /* Do not allow switcher to shrink */
 }
 
 body.single .gp-top-meta-bar .gp-post-category,
@@ -441,9 +442,7 @@ body.single .featured-image img {
 body.single .entry-header {
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important; /* Keeps title and meta bar left-aligned within themselves */
-    gap: 15px !important; /* Space between title and meta bar. */
-    margin-bottom: 25px !important; /* Space after meta bar, before image. */
+    align-items: flex-start !important;
 }
 
 /* 2. 제목과 메타 바의 개별 하단 마진을 제거하여 GAP 중복을 방지합니다. */
