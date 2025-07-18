@@ -8,7 +8,6 @@ Author: Jules
 
 <?php if (have_posts()): ?>
 <section class="related-posts-container">
-    <h2 class="related-posts-title">Related Posts</h2>
     <ol class="related-posts-list">
         <?php while (have_posts()) : the_post(); ?>
             <?php
