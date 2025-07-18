@@ -184,11 +184,22 @@ add_action('wp_enqueue_scripts', 'gp_child_enqueue_assets');
  * Enqueue scripts for the Customizer.
  */
 function gp_child_enqueue_customizer_scripts() {
+    $theme_dir = get_stylesheet_directory();
+    $theme_uri = get_stylesheet_directory_uri();
+
     wp_enqueue_script(
         'gp-child-customizer-dependency',
-        get_stylesheet_directory_uri() . '/assets/js/modules/customize-dependency.js',
-        array( 'customize-controls' ),
-        filemtime( get_stylesheet_directory() . '/assets/js/modules/customize-dependency.js' ),
+        $theme_uri . '/assets/js/modules/customize-dependency.js',
+        [ 'customize-controls' ],
+        filemtime( $theme_dir . '/assets/js/modules/customize-dependency.js' ),
+        true
+    );
+
+    wp_enqueue_script(
+        'gp-child-customizer-fixes',
+        $theme_uri . '/assets/js/admin/customizer-fixes.js',
+        [ 'customize-controls', 'jquery' ],
+        filemtime( $theme_dir . '/assets/js/admin/customizer-fixes.js' ),
         true
     );
 }
