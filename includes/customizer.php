@@ -250,6 +250,32 @@ if ( ! function_exists( 'gp_output_customizer_header_meta' ) ) {
     add_action( 'wp_head', 'gp_output_customizer_header_meta', 6 );
 }
 
+/**
+ * Force refresh transport for menu-related customizer settings.
+ *
+ * This ensures that the preview pane reloads automatically when a menu or its
+ * items are modified. This is a more robust solution than relying on JavaScript
+ * event binding, which can be unreliable.
+ *
+ * @param WP_Customize_Manager $wp_customize The Customizer manager object.
+ */
+function gp_child_force_menu_refresh_transport( $wp_customize ) {
+    // Force refresh for menu locations
+    $nav_menu_locations_setting = $wp_customize->get_setting( 'nav_menu_locations' );
+    if ( $nav_menu_locations_setting ) {
+        $nav_menu_locations_setting->transport = 'refresh';
+    }
+
+    // Force refresh for all individual menu settings
+    $settings = $wp_customize->settings();
+    foreach ( $settings as $setting ) {
+        if ( 'nav_menu' === $setting->type || 'nav_menu_item' === $setting->type ) {
+            $setting->transport = 'refresh';
+        }
+    }
+}
+add_action( 'customize_register', 'gp_child_force_menu_refresh_transport', 99 );
+
 if ( ! function_exists( 'gp_apply_footer_color_css' ) ) {
     function gp_apply_footer_color_css() {
         $footer_background_color = get_theme_mod( 'footer_background_color', '#121212' );
