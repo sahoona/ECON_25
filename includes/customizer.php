@@ -129,6 +129,7 @@ function gp_customize_register_ad_settings( $wp_customize ) {
     $wp_customize->add_setting( 'econarc_ads_enabled', [
         'default'           => false,
         'sanitize_callback' => 'wp_validate_boolean',
+        'transport'         => 'postMessage',
     ] );
     $wp_customize->add_control( 'econarc_ads_enabled_control', [
         'label'    => '본문 내 광고 활성화',
@@ -159,6 +160,7 @@ function gp_customize_register_ad_settings( $wp_customize ) {
     $wp_customize->add_setting( 'econarc_top_ad_enabled', [
         'default'           => false,
         'sanitize_callback' => 'wp_validate_boolean',
+        'transport'         => 'postMessage',
     ] );
     $wp_customize->add_control( 'econarc_top_ad_enabled_control', [
         'label'    => '상단 광고 활성화',
@@ -189,6 +191,7 @@ function gp_customize_register_ad_settings( $wp_customize ) {
     $wp_customize->add_setting( 'econarc_infeed_ad_enabled', [
         'default'           => false,
         'sanitize_callback' => 'wp_validate_boolean',
+        'transport'         => 'postMessage',
     ] );
     $wp_customize->add_control( 'econarc_infeed_ad_enabled_control', [
         'label'    => '인피드 광고 활성화',

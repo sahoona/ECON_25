@@ -65,6 +65,11 @@
                 if ( masterValue !== requiredValue ) {
                     allDependenciesMet = false;
                 }
+
+                // Check for transport type and refresh if necessary
+                if ( masterControl.setting.transport === 'refresh' ) {
+                    wp.customize.previewer.refresh();
+                }
             } else {
                 allDependenciesMet = false;
             }
