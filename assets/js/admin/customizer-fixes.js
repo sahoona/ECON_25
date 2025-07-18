@@ -1,4 +1,14 @@
 ( function( $, api ) {
+    // Simple debounce function
+    function debounce( func, wait ) {
+        let timeout;
+        return function( ...args ) {
+            const context = this;
+            clearTimeout( timeout );
+            timeout = setTimeout( () => func.apply( context, args ), wait );
+        };
+    }
+
     api.bind( 'ready', function() {
         // Force all widget areas to be visible
         api.section.each( function( section ) {
@@ -7,33 +17,36 @@
             }
         } );
 
-        // Function to refresh the previewer
-        const refreshPreview = () => api.previewer.refresh();
+        // Debounced refresh function
+        const debouncedRefresh = debounce( () => {
+            api.previewer.refresh();
+        }, 250 ); // 250ms delay
 
-        // Listen for changes in menu-related settings
-        const menuSettings = [
-            'nav_menu_locations',
-            'nav_menu'
-        ];
+        // Function to bind refresh to a setting
+        const bindRefresh = ( setting ) => {
+            // Only act on settings that require a refresh
+            if ( setting.transport === 'refresh' ) {
+                setting.bind( debouncedRefresh );
+            }
+        };
 
-        menuSettings.forEach( setting => {
-            api( setting, ( value ) => {
-                value.bind( refreshPreview );
-            } );
+        // Listen for changes in menu-related settings and controls
+        api.control.each( function( control ) {
+            if ( control.section && control.section.startsWith( 'nav_menu' ) ) {
+                bindRefresh( control.setting );
+            }
         } );
 
-        // Also listen for changes within menu sections
-        api.section.each( function( section ) {
-            if ( section.id.startsWith( 'nav_menu' ) ) {
-                section.expanded.bind( function( isExpanded ) {
-                    if ( isExpanded ) {
-                        // When a menu section is opened, listen to its controls
-                        section.controls.each( function( control ) {
-                            control.setting.bind( refreshPreview );
-                        } );
-                    }
-                } );
+        // Also listen for when controls are added (e.g., new menu item)
+        api.control.bind( 'add', function( control ) {
+            if ( control.section && control.section.startsWith( 'nav_menu' ) ) {
+                bindRefresh( control.setting );
             }
+        } );
+
+        // Handle menu location changes specifically
+        api( 'nav_menu_locations', ( setting ) => {
+            bindRefresh( setting );
         } );
     } );
 } )( jQuery, window.wp.customize );
