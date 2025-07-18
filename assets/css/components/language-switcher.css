@@ -44,7 +44,7 @@ li.pll-parent-menu-item > a:visited {
 }
 li.pll-parent-menu-item > a > img,
 li.pll-parent-menu-item .dropdown-menu-toggle {
-    display: none !important;
+    display: inline-block !important;
 }
 li.pll-parent-menu-item > a::before {
     content: '' !important;
@@ -146,11 +146,6 @@ li.pll-parent-menu-item ul.sub-menu li.current-lang a::after {
    ========================================================================== */
 /* Styles for the NEW button-based language switcher dropdown. */
 
-#nav-menu-item-1376 {
-    order: 99;
-    margin-left: auto;
-}
-
 .gp-language-switcher { /* ID: #gp-language-switcher */
     position: relative;
     display: inline-block;
@@ -166,7 +161,7 @@ button#gp-lang-switcher-button, /* Specific ID for the button */
     color: var(--text-secondary);
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-secondary);
-    padding: 0px 10px; /* Adjusted padding */
+    padding: 7px 10px; /* Adjusted padding */
     border-radius: 12px; /* Consistent with other small buttons */
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
@@ -269,10 +264,4 @@ body.single .gp-top-meta-bar .gp-language-switcher { /* Targets the language swi
     /* Flex items align right due to space-between on parent, no specific justify-self or grid-column needed */
     /* Ensure no grid properties are present */
     margin-left: auto;
-}
-
-@media (max-width: 768px) {
-    #nav-menu-item-1376 {
-        margin-left: 0;
-    }
 }
