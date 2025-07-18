@@ -5,6 +5,8 @@
 .gp-custom-post-nav-wrapper {
     padding: 0 !important;
     margin-top: 25px !important; /* main 요소와의 간격 확보 */
+    margin-left: calc(-1 * var(--mobile-padding));
+    margin-right: calc(-1 * var(--mobile-padding));
 }
 .gp-custom-post-nav { margin-top: 0; background-color: var(--bg-secondary); border: 1px solid var(--border-primary); box-shadow: 0 5px 15px rgba(0,0,0,0.07); border-radius: 20px !important; overflow: hidden !important; }
 .gp-custom-post-nav .nav-links { display: flex; width: 100%; }
