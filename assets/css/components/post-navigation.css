@@ -3,7 +3,6 @@
    ========================================================================== */
 /* Styles for the custom previous/next post navigation with thumbnails. */
 .gp-custom-post-nav-wrapper {
-    max-width: 950px !important;
     padding: 0 !important;
     margin-top: 25px !important; /* main 요소와의 간격 확보 */
 }
