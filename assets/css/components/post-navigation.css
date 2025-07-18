@@ -13,10 +13,10 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.07);
     border-radius: 20px !important;
     overflow: hidden !important;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 .gp-custom-post-nav .nav-links { display: flex; width: 100%; }
 .gp-custom-post-nav .nav-previous, .gp-custom-post-nav .nav-next { flex: 1 1 50%; position: relative; }
