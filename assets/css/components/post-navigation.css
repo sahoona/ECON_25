@@ -5,8 +5,6 @@
 .gp-custom-post-nav-wrapper {
     padding: 0 !important;
     margin-top: 25px !important; /* main 요소와의 간격 확보 */
-    width: 100%;
-    box-sizing: border-box;
 }
 .gp-custom-post-nav {
     margin-top: 0;
@@ -15,8 +13,10 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.07);
     border-radius: 20px !important;
     overflow: hidden !important;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .gp-custom-post-nav .nav-links { display: flex; width: 100%; }
 .gp-custom-post-nav .nav-previous, .gp-custom-post-nav .nav-next { flex: 1 1 50%; position: relative; }
