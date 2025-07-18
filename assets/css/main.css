@@ -15,8 +15,6 @@ Template: generatepress
 
 html.dark-mode-active { --color-primary: #5EEAD4; --color-text-title: #F1F5F9; --color-text-body: #CBD5E1; --color-text-blockquote: #BDC3C7; --color-background: #0F172A; --color-background-soft: #1E293B; --color-border: #334155; }
 
-body { background-color: var(--color-background); font-family: var(--font-main); color: var(--color-text-body); font-weight: 450; line-height: 1.85; word-break: keep-all; overflow-x: hidden; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; letter-spacing: -0.01em; }
-
 /* 특정 요소 폰트 스타일 */
 .site-header,
 #masthead,
@@ -103,80 +101,6 @@ div.site-footer .copyright-bar { height: 0 !important; overflow: hidden !importa
 .site-footer-container .footer-copyright { text-align: center; border-top: 1px solid #282828; margin-top: 60px; padding-top: 15px; padding-bottom: 10px; }
 .site-footer-container .footer-copyright p { color: var(--footer-text-color) !important; margin: 0; padding: 0; font-size: 0.8rem; }
 
-/* New Footer Styles */
-.new-footer { background-color: #121212 !important; padding: 70px 0 0 0 !important; margin-top: 100px !important; border-top: 3px solid #FFC107; }
-.new-footer footer.site-info, .new-footer .inside-site-info { background: none !important; padding: 0 !important; }
-.new-footer .copyright-bar { height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; border: none !important; font-size: 0 !important; line-height: 0 !important; }
-.new-footer-container { max-width: 1200px; margin: 0 auto; padding: 0 40px !important; box-sizing: border-box; }
-.new-footer-container .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; align-items: start; }
-.new-footer-container .footer-about p { color: #999; line-height: 1.7; padding-right: 20px; margin-top: 25px; text-align: center; }
-.new-footer-container .footer-heading { color: #eee !important; font-weight: 500; margin-bottom: 25px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; padding-bottom: 10px; text-align: center; }
-.new-footer-container .footer-heading::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 25px; height: 2px; background-color: #FFC107; }
-.new-footer-container .footer-about .site-name { font-size: 1.8rem; font-weight: 700; text-transform: none; letter-spacing: 0; position: relative; padding-bottom: 10px; margin-bottom: 25px; text-align: center; color: #eee !important; border-bottom: 2px solid var(--color-border) !important; }
-.new-footer-container .footer-about .site-name::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background-color: #FFC107; }
-.new-footer-container .footer-links ul { list-style: none; padding: 0; margin: 0; text-align: center; }
-.new-footer-container .footer-links ul li { margin-bottom: 15px; }
-.new-footer-container .footer-links ul li a { color: #999 !important; text-decoration: none !important; position: relative; padding-bottom: 5px; display: inline-block; }
-.new-footer-container .footer-links ul li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background-color: #FFC107; transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
-.new-footer-container .footer-links ul li a:hover { color: #fff !important; }
-.new-footer-container .footer-links ul li a:hover::after { width: 100%; }
-.new-footer-container .footer-copyright { text-align: center; border-top: 1px solid #282828; margin-top: 60px; padding-top: 15px; padding-bottom: 10px; }
-.new-footer-container .footer-copyright p { color: #EEEEEE !important; margin: 0; padding: 0; font-size: 0.8rem; }
-
-
-
-
-/* == Footer Centering Fixes - Appended == */
-
-/* Neutralize inherited text-align on .site-footer if footer-bar-align-right is causing issues */
-.site-footer.footer-bar-active.footer-bar-align-right {
-    text-align: left !important; /* Reset to left, allowing children to be centered via margin:auto or their own text-align */
-}
-
-/* Center .site-info within .site-footer and reset its text-align */
-/* This helps if .site-footer itself is text-align: right due to theme classes */
-.site-footer > .site-info {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: left !important; /* Reset for children */
-}
-
-/* Center the specific widget aside#block-21 within its parent .footer-bar */
-/* .footer-bar itself might be full-width within .site-info, or constrained by .grid-container */
-/* This centers the widget block if .footer-bar is wider than the widget */
-.footer-bar > aside#block-21 {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important; /* Ensure no floats are interfering */
-    display: block !important; /* Ensure it's a block for margin:auto to work */
-}
-
-/* Ensure the paragraph within .site-footer-dark is centered */
-/* This overrides inline margin:0 on the <p> tag */
-#block-21 footer.site-footer-dark p {
-    width: 325.875px !important;
-    margin: 0 auto !important;
-}
-
-/* If .site-footer-dark itself needs to be only as wide as its p content and centered */
-/* This rule is from a previous step and supports the p centering. */
-#block-21 footer.site-footer-dark {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: fit-content !important;
-    /* text-align: center; is in its inline style, which is good */
-}
-
-/* If .footer-bar itself needs to center its content (like the aside#block-21 widget) */
-/* This rule is from a previous step. */
-.footer-bar {
-    text-align: center !important;
-    /* If it's a flex container: */
-    /* display: flex !important; */
-    /* justify-content: center !important; */
-}
-
-/* == End Footer Centering Fixes == */
 
 /* ==========================================================================
    1. CSS Variables & Root Settings
