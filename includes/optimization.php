@@ -90,8 +90,8 @@ function prefix_defer_js_scripts( $tag, $handle, $src ) {
     $defer_scripts = array(
         'generate-navigation',
         'generatepress-navigation',
-        'generate-menu',
-        'generatepress-menu',
+        // 'generate-menu',
+        // 'generatepress-menu',
         'generate-modal',
         'generatepress-modal',
     );
