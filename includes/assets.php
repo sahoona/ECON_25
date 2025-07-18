@@ -33,7 +33,6 @@ function gp_child_enqueue_assets() {
         'variables'   => '/assets/css/components/variables.css',
         'main'        => '/assets/css/main.css',
         // Layout
-        'layout'      => '/assets/css/layout.css',
         'header'      => '/assets/css/components/header.css',
         'sidebar'     => '/assets/css/components/sidebar.css',
         'responsive'  => '/assets/css/components/responsive.css',
