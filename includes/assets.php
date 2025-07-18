@@ -175,6 +175,20 @@ function gp_child_enqueue_assets() {
 }
 add_action('wp_enqueue_scripts', 'gp_child_enqueue_assets');
 
+/**
+ * Enqueue scripts for the Customizer.
+ */
+function gp_child_enqueue_customizer_scripts() {
+    wp_enqueue_script(
+        'gp-child-customizer-dependency',
+        get_stylesheet_directory_uri() . '/assets/js/modules/customize-dependency.js',
+        array( 'customize-controls' ),
+        filemtime( get_stylesheet_directory() . '/assets/js/modules/customize-dependency.js' ),
+        true
+    );
+}
+add_action( 'customize_controls_enqueue_scripts', 'gp_child_enqueue_customizer_scripts' );
+
 function gp_child_dark_mode_flicker_prevention() {
     ?>
     <script>

@@ -11,6 +11,7 @@ import { setupInfiniteScroll, setupSeriesLoadMoreButton } from './modules/infini
 import { setupLazyLoading } from './modules/lazyLoad.js';
 import { initAllAds } from '../../components/ads/ads.js';
 import { setupPostedDateToggles, setupLanguageToggle, setupCodeCopyButtons, removeProblematicAriaLabel } from './modules/utils.js';
+import './modules/customize-dependency.js';
 
 'use strict';
 
